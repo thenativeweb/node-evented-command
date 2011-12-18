@@ -8,10 +8,25 @@ Project goal is to provide a simple command/event handling for evented systems l
 
     $ npm install nodeEventedCommand
 
-# Usage
+# Simple usage
 
 	// get the hub
 	var hub = require('nodeEventedCommand').hub;
+	
+	// initialize the hub by passing the function that gets the command id from the event
+	hub.init(
+		function(evt) {
+			return evt.commandId;
+		}
+	);
+
+	// and the command
+	var Command = require('nodeEventedCommand').Command;
+
+# Advanced usage with own instance
+
+	// get the hub
+	var hub = require('nodeEventedCommand').hub.create();
 	
 	// initialize the hub by passing the function that gets the command id from the event
 	hub.init(
@@ -23,7 +38,7 @@ Project goal is to provide a simple command/event handling for evented systems l
 	);
 
 	// and the command
-	var Command = require('nodeEventedCommand').Command;
+	var Command = require('nodeEventedCommand').Command.create(hub);
 
 ## Wire up commands and events
 
