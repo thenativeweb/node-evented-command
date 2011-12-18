@@ -30,6 +30,9 @@ Project goal is to provide a simple command/event handling for evented systems l
 	// pass in events from your bus
 	bus.on('events', function(data){
 	    hub.emit('events', data);
+
+	    // use it with wildcards for mulit callback
+	    // hub.emit('event:' + data.event, data);
 	});
 
 	// pass commands to bus
@@ -54,6 +57,20 @@ Project goal is to provide a simple command/event handling for evented systems l
 
 	// if you want to observe the command pass a callback
 	cmd.emit(function(evt) {
+		
+	});
+
+
+	// if you want to observe the command that generates any events pass an object like this:
+	cmd.emit({
+
+		event1: function(evt) {
+			
+		},
+
+		event2: function(evt) {
+			
+		}
 		
 	});
 
