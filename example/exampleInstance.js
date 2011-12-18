@@ -14,7 +14,7 @@ hub.on('commands', function(data) {
 		hub.emit('event:event2', {event: 'event2', id: data.id});
 	}
 
-    hub.emit('events', data);
+    hub.emit('event:bla', data);
 });
 
 // and the command
