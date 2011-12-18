@@ -16,6 +16,7 @@
         "node": ">= v0.4.0"
     }
   , "dependencies": {
+    "eventemitter2": ">= v0.4.8"
   }
   , "devDependencies": {
   }
