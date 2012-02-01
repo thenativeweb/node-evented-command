@@ -12,6 +12,15 @@ Project goal is to provide a simple command/event handling for evented systems l
 
 	// get the hub
 	var hub = require('nodeEventedCommand').hub;
+	
+	// initialize the hub by passing the function that gets the command id from the event
+	hub.init(
+		function(evt) {
+			var idEndIndex = evt.id.indexOf('_event');
+			var id = evt.id.substring(0, idEndIndex);
+			return id;
+		}
+	);
 
 	// and the command
 	var Command = require('nodeEventedCommand').Command;
@@ -31,7 +40,7 @@ Project goal is to provide a simple command/event handling for evented systems l
 ## Send commands
 
 	var cmd = new Command({
-	    name: 'changePerson',
+	    command: 'changePerson',
 	    payload: {
 	        id: 8,
 	        name: 'my name'
