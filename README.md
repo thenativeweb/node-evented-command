@@ -6,12 +6,12 @@ Project goal is to provide a simple command/event handling for evented systems l
 
 # Installation
 
-    $ npm install nodeEventedCommand
+    $ npm install evented-command
 
 # Simple usage
 
 	// get the hub
-	var hub = require('nodeEventedCommand').hub;
+	var hub = require('evented-command').hub;
 	
 	// initialize the hub by passing the function that gets the command id from the event
 	hub.init(
@@ -21,12 +21,12 @@ Project goal is to provide a simple command/event handling for evented systems l
 	);
 
 	// and the command
-	var Command = require('nodeEventedCommand').Command;
+	var Command = require('evented-command').Command;
 
 # Advanced usage with own instance
 
 	// get the hub
-	var hub = require('nodeEventedCommand').hub.create();
+	var hub = require('evented-command').hub.create();
 	
 	// initialize the hub by passing the function that gets the command id from the event
 	hub.init(
@@ -38,7 +38,7 @@ Project goal is to provide a simple command/event handling for evented systems l
 	);
 
 	// and the command
-	var Command = require('nodeEventedCommand').Command.create(hub);
+	var Command = require('evented-command').Command.create(hub);
 
 ## Wire up commands and events
 
@@ -91,7 +91,7 @@ Project goal is to provide a simple command/event handling for evented systems l
 
 # License
 
-Copyright (c) 2012 Adriano Raiano
+Copyright (c) 2014 Adriano Raiano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

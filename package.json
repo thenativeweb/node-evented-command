@@ -1,25 +1,31 @@
 {
-    "author": "adrai"
-  , "name": "nodeEventedCommand"
-  , "version": "0.1.2"
-  , "private": false
-  , "repository": {
-      "type": "git"
-    , "url": "git@github.com:adrai/nodeEventedCommand.git"
-  }
-  , "keywords": ["cqrs", "evented", "ddd", "eventsourcing", "command", "observer", "event"]
-  , "main": "./index.js"
-  , "directories": {
+  "author": "adrai",
+  "name": "evented-command",
+  "version": "0.1.4",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adrai/node-evented-command.git"
+  },
+  "keywords": [
+    "cqrs",
+    "evented",
+    "ddd",
+    "eventsourcing",
+    "command",
+    "observer",
+    "event"
+  ],
+  "main": "./index.js",
+  "directories": {
     "lib": "./lib"
-  }
-  , "engines": {
-        "node": ">= v0.6.5"
-    }
-  , "dependencies": {
-    "eventemitter2": ">= v0.4.8"
-  }
-  , "devDependencies": {
-  }
-  , "scripts" : { 
-    } 
+  },
+  "engines": {
+    "node": ">= v0.6.5"
+  },
+  "dependencies": {
+    "eventemitter2": "0.4.14"
+  },
+  "devDependencies": {},
+  "scripts": {}
 }
