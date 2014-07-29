@@ -1,68 +1,84 @@
 # Introduction
 
-This project is inspirated by [jamuhl](https://github.com/jamuhl/backbone.CQRS).
+[![travis](https://img.shields.io/travis/adrai/node-evented-command.svg)](https://travis-ci.org/adrai/node-evented-command) [![npm](https://img.shields.io/npm/v/node-queue.svg)](https://npmjs.org/package/evented-command)
 
 Project goal is to provide a simple command/event handling for evented systems like cqrs.
 
 # Installation
 
-    $ npm install evented-command
+  $ npm install evented-command
 
-# Simple usage
+# Usage
 
-	// get the hub
-	var hub = require('evented-command').hub;
-	
-	// initialize the hub by passing the function that gets the command id from the event
-	hub.init(
-		function(evt) {
-			return evt.commandId;
-		}
-	);
+	var evtCmd = require('evented-command')();
 
-	// and the command
-	var Command = require('evented-command').Command;
+## Define the command structure [optional] 
+The values describes the path to that property in the command message.
 
-# Advanced usage with own instance
+	evtCmd.defineCommand({
+	  id: 'id',                       // optional
+	  name: 'name',                   // optional
+	  context: 'context.name',        // optional
+	  aggregate: 'aggregate.name',    // optional
+	  aggregateId: 'aggregate.id'     // optional
+	});
 
-	// get the hub
-	var hub = require('evented-command').hub.create();
-	
-	// initialize the hub by passing the function that gets the command id from the event
-	hub.init(
-		function(evt) {
-			var idEndIndex = evt.id.indexOf('_event');
-			var id = evt.id.substring(0, idEndIndex);
-			return id;
-		}
-	);
+## Define the event structure [optional]
+The values describes the path to that property in the event message.
 
-	// and the command
-	var Command = require('evented-command').Command.create(hub);
+	evtCmd.defineEvent({
+	  correlationId: 'correlationId', // optional
+	  id: 'id',                       // optional
+	  name: 'name',                   // optional
+	  context: 'context.name',        // optional
+	  aggregate: 'aggregate.name',    // optional
+	  aggregateId: 'aggregate.id'     // optional
+	});
+
+## Define the id generator function [optional]
+### you can define a synchronous function
+
+	evtCmd.idGenerator(function() {
+	  var id = require('node-uuid').v4().toString();
+	  return id;
+	});
+
+### or you can define an asynchronous function
+
+	evtCmd.idGenerator(function(callback) {
+	  setTimeout(function() {
+	    var id = require('node-uuid').v4().toString();
+	    callback(null, id);
+	  }, 50);
+	});
 
 ## Wire up commands and events
 
 	// pass in events from your bus
-	bus.on('events', function(data){
-	    hub.emit('events', data);
-
-	    // use it with wildcards for mulit callback
-	    // hub.emit('event:' + data.event, data);
+	bus.on('event', function(data){
+	  evtCmd.emit('event', data);
 	});
 
 	// pass commands to bus
-	hub.on('commands', function(data) {
-	    bus.emit('commands', data);
+	evtCmd.on('command', function(data) {
+	  bus.emit('command', data);
 	});
 
 ## Send commands
 
 	var cmd = new Command({
-	    command: 'changePerson',
-	    payload: {
-	        id: 8,
-	        name: 'my name'
-	    }
+		// id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
+    name: 'changePerson',
+    payload: {
+      name: 'my name'
+    },
+    aggregate: {
+      id: 8,
+      name: 'jack'
+    },
+    context: {
+    	name: 'hr'
+    }
 	});
 
 	// emit it
@@ -88,6 +104,40 @@ Project goal is to provide a simple command/event handling for evented systems l
 		}
 		
 	});
+
+### Send commands with the speakable api
+
+	evtCmd.send('changePerson')
+        .for('person') // aggregate name
+        .instance('8') // aggregate id
+        .in('hr')			 // context name
+        .with({
+        	// id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
+          revision: '12',
+          payload: {
+          	name: 'jack'
+          }
+        })
+        .go(function(evt) {
+          console.log('speakable', evt);
+        });
+
+  evtCmd.send('multi')
+        .for('aggregate')
+        .instance('instanceId')
+        .in('context')
+        .with({
+          revision: '43',
+          payload: 'data2'
+        })
+        .go({
+          event1: function(evt) {
+            console.log('speakable', evt);
+          },
+          event2: function(evt) {
+            console.log('speakable', evt);
+          }
+        });
 
 # License
 

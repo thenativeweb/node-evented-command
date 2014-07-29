@@ -1,16 +1,18 @@
 {
   "author": "adrai",
   "name": "evented-command",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "private": false,
   "repository": {
     "type": "git",
     "url": "git@github.com:adrai/node-evented-command.git"
   },
+  "description": "Project goal is to provide a simple command/event handling for evented systems like cqrs.",
   "keywords": [
     "cqrs",
     "evented",
     "ddd",
+    "dddd",
     "eventsourcing",
     "command",
     "observer",
@@ -24,8 +26,15 @@
     "node": ">= v0.6.5"
   },
   "dependencies": {
-    "eventemitter2": "0.4.14"
+    "dotty": "0.0.2",
+    "lodash": "2.4.1",
+    "node-uuid": "1.4.1"
   },
-  "devDependencies": {},
-  "scripts": {}
+  "devDependencies": {
+    "expect.js": ">=0.3.1",
+    "mocha": ">=1.21.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
 }

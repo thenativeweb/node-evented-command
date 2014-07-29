@@ -1,12 +1,7 @@
-var index;
+'use strict';
 
-if (typeof module.exports !== 'undefined') {
-    index = module.exports;
-} else {
-    index = root.index = {};
-}
+var Hub = require('./lib/hub');
 
-index.VERSION = '0.1.4';
-
-index.hub = require('./lib/hub');
-index.Command = require('./lib/command');
+module.exports = function() {
+	return new Hub();
+};
