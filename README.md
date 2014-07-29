@@ -79,7 +79,7 @@ The values describes the path to that property in the event message.
     context: {
       name: 'hr'
     }
-	});
+  });
 
 	// emit it
 	cmd.emit();
