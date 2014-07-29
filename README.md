@@ -1,6 +1,6 @@
 # Introduction
 
-[![travis](https://img.shields.io/travis/adrai/node-evented-command.svg)](https://travis-ci.org/adrai/node-evented-command) [![npm](https://img.shields.io/npm/v/node-queue.svg)](https://npmjs.org/package/evented-command)
+[![travis](https://img.shields.io/travis/adrai/node-evented-command.svg)](https://travis-ci.org/adrai/node-evented-command) [![npm](https://img.shields.io/npm/v/evented-command.svg)](https://npmjs.org/package/evented-command)
 
 Project goal is to provide a simple command/event handling for evented systems like cqrs.
 
