@@ -67,19 +67,19 @@ The values describes the path to that property in the event message.
 ## Send commands
 
 	var cmd = new Command({
-    // id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
-    name: 'changePerson',
-    payload: {
-      name: 'my name'
-    },
-    aggregate: {
-      id: 8,
-      name: 'jack'
-    },
-    context: {
-      name: 'hr'
-    }
-  });
+	  // id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
+	  name: 'changePerson',
+	  payload: {
+	    name: 'my name'
+	  },
+	  aggregate: {
+	    id: 8,
+	    name: 'jack'
+	  },
+	  context: {
+	    name: 'hr'
+	  }
+	});
 
 	// emit it
 	cmd.emit();
@@ -88,56 +88,56 @@ The values describes the path to that property in the event message.
 
 	// if you want to observe the command pass a callback
 	cmd.emit(function(evt) {
-		
+	  
 	});
 
 
 	// if you want to observe the command that generates any events pass an object like this:
 	cmd.emit({
 
-    event1: function(evt) {
-    
-    },
-    
-    event2: function(evt) {
-    
-    }
+	  event1: function(evt) {
+	   
+	  },
+	   
+	  event2: function(evt) {
+	   
+	  }
 		
 	});
 
 ### Send commands with the speakable api
 
 	evtCmd.send('changePerson')
-        .for('person') // aggregate name
-        .instance('8') // aggregate id
-        .in('hr')			 // context name
-        .with({
-          // id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
-          revision: '12',
-          payload: {
-          	name: 'jack'
-          }
-        })
-        .go(function(evt) {
-          console.log('speakable', evt);
-        });
+	      .for('person') // aggregate name
+	      .instance('8') // aggregate id
+	      .in('hr')			 // context name
+	      .with({
+	        // id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
+	        revision: '12',
+	        payload: {
+	        	name: 'jack'
+	        }
+	      })
+	      .go(function(evt) {
+	        console.log('speakable', evt);
+	      });
 
 	evtCmd.send('multi')
-        .for('aggregate')
-        .instance('instanceId')
-        .in('context')
-        .with({
-          revision: '43',
-          payload: 'data2'
-        })
-        .go({
-          event1: function(evt) {
-            console.log('speakable', evt);
-          },
-          event2: function(evt) {
-            console.log('speakable', evt);
-          }
-        });
+	      .for('aggregate')
+	      .instance('instanceId')
+	      .in('context')
+	      .with({
+	        revision: '43',
+	        payload: 'data2'
+	      })
+	      .go({
+	        event1: function(evt) {
+	          console.log('speakable', evt);
+	        },
+	        event2: function(evt) {
+	          console.log('speakable', evt);
+	        }
+	      });
 
 # License
 
