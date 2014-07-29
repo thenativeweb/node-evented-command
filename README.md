@@ -122,7 +122,7 @@ The values describes the path to that property in the event message.
           console.log('speakable', evt);
         });
 
-  evtCmd.send('multi')
+	evtCmd.send('multi')
         .for('aggregate')
         .instance('instanceId')
         .in('context')
