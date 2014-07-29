@@ -77,7 +77,7 @@ The values describes the path to that property in the event message.
       name: 'jack'
     },
     context: {
-    	name: 'hr'
+      name: 'hr'
     }
 	});
 
@@ -95,13 +95,13 @@ The values describes the path to that property in the event message.
 	// if you want to observe the command that generates any events pass an object like this:
 	cmd.emit({
 
-		event1: function(evt) {
-			
-		},
-
-		event2: function(evt) {
-			
-		}
+    event1: function(evt) {
+    
+    },
+    
+    event2: function(evt) {
+    
+    }
 		
 	});
 
@@ -112,7 +112,7 @@ The values describes the path to that property in the event message.
         .instance('8') // aggregate id
         .in('hr')			 // context name
         .with({
-        	// id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
+          // id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
           revision: '12',
           payload: {
           	name: 'jack'
