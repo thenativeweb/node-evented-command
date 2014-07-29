@@ -67,7 +67,7 @@ The values describes the path to that property in the event message.
 ## Send commands
 
 	var cmd = new Command({
-		// id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
+    // id: 'my onwn command id', // if you don't pass an id it will generate one, when emitting the command...
     name: 'changePerson',
     payload: {
       name: 'my name'
