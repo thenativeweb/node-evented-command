@@ -6,7 +6,7 @@ Project goal is to provide a simple command/event handling for evented systems l
 
 # Installation
 
-  $ npm install evented-command
+  npm install evented-command
 
 # Usage
 
