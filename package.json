@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "dotty": "0.0.2",
-    "lodash": "^3.10.1",
+    "lodash": "3.10.1",
     "node-uuid": "1.4.3"
   },
   "devDependencies": {
