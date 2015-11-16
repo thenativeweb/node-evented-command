@@ -28,7 +28,7 @@
   "dependencies": {
     "dotty": "0.0.2",
     "lodash": "3.10.1",
-    "node-uuid": "^1.4.7"
+    "node-uuid": "1.4.7"
   },
   "devDependencies": {
     "expect.js": ">=0.3.1",
