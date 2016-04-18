@@ -12,7 +12,7 @@ Project goal is to provide a simple command/event handling for evented systems l
 
 	var evtCmd = require('evented-command')();
 
-## Define the command structure [optional] 
+## Define the command structure [optional]
 The values describes the path to that property in the command message.
 
 	evtCmd.defineCommand({
@@ -88,7 +88,7 @@ The values describes the path to that property in the event message.
 
 	// if you want to observe the command pass a callback
 	cmd.emit(function(evt) {
-	  
+
 	});
 
 
@@ -96,13 +96,13 @@ The values describes the path to that property in the event message.
 	cmd.emit({
 
 	  event1: function(evt) {
-	   
+
 	  },
-	   
+
 	  event2: function(evt) {
-	   
+
 	  }
-		
+
 	});
 
 ### Send commands with the speakable api
@@ -141,7 +141,7 @@ The values describes the path to that property in the event message.
 
 # License
 
-Copyright (c) 2015 Adriano Raiano
+Copyright (c) 2016 Adriano Raiano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
