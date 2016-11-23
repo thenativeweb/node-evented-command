@@ -96,7 +96,7 @@ describe('evented-command', function() {
         it('it should be transformed internally to an asynchronous way', function(done) {
 
           evtCmd.idGenerator(function() {
-           var id = require('node-uuid').v4().toString();
+           var id = require('uuid').v4().toString();
            return id;
           });
 
@@ -115,7 +115,7 @@ describe('evented-command', function() {
 
           evtCmd.idGenerator(function(callback) {
             setTimeout(function() {
-              var id = require('node-uuid').v4().toString();
+              var id = require('uuid').v4().toString();
               callback(null, id);
             }, 10);
           });
