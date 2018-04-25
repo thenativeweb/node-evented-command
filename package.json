@@ -35,6 +35,6 @@
     "mocha": "3.x.x"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --exit"
   }
 }
