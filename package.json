@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "expect.js": ">=0.3.1",
-    "mocha": ">=1.21.3"
+    "mocha": "3.x.x"
   },
   "scripts": {
     "test": "mocha"
