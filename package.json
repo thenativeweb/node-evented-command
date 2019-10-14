@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "dotty": "0.0.2",
-    "lodash": "4.17.2",
+    "lodash": "4.17.15",
     "uuid": "3.0.0"
   },
   "devDependencies": {
